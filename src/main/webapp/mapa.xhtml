@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:gis="http://gisfaces.com"
+	template="plantilla.xhtml">
+
+	<ui:define name="contenido">
+		<script type="text/javascript">
+ 
+		function geoFindMe() {
+			  var output = document.getElementById("out");
+
+			  if (!navigator.geolocation){
+			    output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+			    return;
+			  }
+
+			  function success(position) {
+			    var latitude  = position.coords.latitude;
+			    var longitude = position.coords.longitude;
+
+			    output.innerHTML = latitude ;
+
+			   
+			  };
+
+			  function error() {
+			    output.innerHTML = "Unable to retrieve your location";
+			  };
+
+			  output.innerHTML = "<p>Locating…</p>";
+
+			  navigator.geolocation.getCurrentPosition(success, error);
+
+			 
+			  
+				return output;
+				
+		}
+   </script>
+
+
+	
+
+
+
+
+
+		<h:form>
+			<p:growl id="growl1" showSummary="true" showDetail="true"></p:growl>
+
+
+
+		
+			<p:layoutUnit position="center">
+				<h:panelGroup id="panel1" layout="block"
+					styleClass="gisfacesMapPanel"></h:panelGroup>
+			</p:layoutUnit>
+
+			
+
+
+			<gis:map id="map1" mapPanel="panel1" background="streets"
+				latitude="-2.903059" longitude="-79.002847" zoom="15">
+				<gis:service type="dynamic"
+					url="http://server.arcgisonline.com/arcgis/rest/services/Demographics/USA_Retail_Spending_Potential/MapServer"
+					opacity="0.5"></gis:service>
+				<gis:service type="graphics"
+					model="#{mapBean.starbucksGraphicsModel}"></gis:service>
+				<f:ajax event="click" listener="#{mapBean.doMapClickListener}"
+					render="growl1"></f:ajax>
+				<f:ajax event="view" listener="#{mapBean.doMapGraphicViewListener}"
+					render="growl1"></f:ajax>
+				<f:ajax event="select"
+					listener="#{mapBean.doMapGraphicSelectListener}" render="growl1"></f:ajax>
+				<f:ajax event="drag" listener="#{mapBean.doMapGraphicDragListener}"
+					render="growl1"></f:ajax>
+			</gis:map>
+
+
+
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

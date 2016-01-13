@@ -21,7 +21,8 @@ html,body {
 /*-- header --*/
 .header-top{
   background: #3D3D3D;
-  padding: 1.2em 0;
+  height:50; 
+   padding: 1.2em 0;
 }
 .header-top-left{
 	float:left;
@@ -2648,4 +2649,13 @@ font-size: 23px;
 	.footer-logo a {
 		font-size: 43px;
 	}
+	
+	.connect a.facebook { background: url(../img/facebook.png) center center no-repeat; }
+.connect a.twitter { background: url(../img/twitter.png) center center no-repeat; }
+
+.connect a:hover { background-position: center bottom; }
+	
+	
+	
+	
 }

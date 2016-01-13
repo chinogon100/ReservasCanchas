@@ -28,8 +28,7 @@ jQuery(document).ready(function($) {
 });
 </script>
 	<title><ui:insert name="titulo">
-                Facelets Template
-            </ui:insert></title>
+               Reservas Canchas            </ui:insert></title>
 </h:head>
 
 <h:body>
@@ -40,8 +39,9 @@ jQuery(document).ready(function($) {
 				<!-- container -->
 				<div class="container">
 					<div class="header-top-left">
-						<p:commandButton type="button" value="Login"
-							onclick="PF('dlg').show();" icon="ui-icon-extlink" />
+						<p:button outcome="iniciar-sesion" value="Iniciar Sesion" icon="ui-icon-star">
+    
+					    </p:button>
 					</div>
 					<div class="header-top-right">
 						<form>
@@ -58,7 +58,7 @@ jQuery(document).ready(function($) {
 				<!-- container -->
 				<div class="container">
 					<div class="header-middle-logo">
-						<a href="index.html">Reserva tu cancha ya</a>
+						<a href="index.xhtml">Reserva tu cancha ya</a>
 					</div>
 					<div class="header-middle-right">
 						<div class="phone">
@@ -89,13 +89,10 @@ jQuery(document).ready(function($) {
 				<div class="container">
 					<span class="menu">MENU</span>
 					<ul class="nav1">
-						<li><a href="about.html">About us</a></li>
-						<li><a href="matches.html">Matches</a></li>
-						<li><a href="gallery.html">Gallery</a></li>
-						<li><a href="articles.html">Articles</a></li>
-						<li><a href="blog.html">Blogs</a></li>
-						<li><a href="typo.html">Typo</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a href="mapa.xhtml">Mapas</a></li>
+						<li><a href="">Noticias</a></li>
+						<li><a href="">Blogs</a></li>
+						<li><a href="">Cuenta</a></li>
 						<div class="clearfix"></div>
 					</ul>
 					<!-- script-for-menu -->
@@ -132,29 +129,19 @@ jQuery(document).ready(function($) {
 				<div class="footer-top">
 						<div class="footer-grids">
 							<div class="col-md-3 f-address">
-								<h5>Address</h5>
+								<h5>Direccion</h5>
 								<ul>
-									<li>756 gt globel Place,</li>
-									<li>CD-Road,M 07 435.</li>
-									<li>Telephone: +1 234 567 9871</li>
-									<li>FAX: +1 234 567 9871</li>
+									<li>Cuenca-Ecuador</li>
+									<li>Telefono: 0992674354</li>
 									<li>E-mail : <a href="mailto:example@email.com">Example@mail.com</a></li>
 								</ul>
 							</div>
-							<div class="col-md-6 f-address f-contact">
-								<h5>Stay in Touch</h5>
-								<form>
-									<input type="text" placeholder="Email address" required=""/>
-									<input type="submit" value="Subscribe"/>
-								</form>
-							</div>
+							
 							<div class="col-md-3 footer-logo">
-								<a href="index.html">Forward</a>
+								<a href="index.xhtml">Siguenos en </a>
 								<div class="footer-left">
 									<ul>
 										<li><a class="facebook" href="#"></a></li>
-										<li><a class="twitter" href="#"></a></li>
-										<li><a class="linked-in" href="#"></a></li>
 										<li><a class="you-tube" href="#"></a></li>
 									</ul>
 								</div>
