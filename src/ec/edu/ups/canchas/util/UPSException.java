@@ -8,12 +8,13 @@ public class UPSException extends Exception {
 	private static final long serialVersionUID = 1L;
 	
 	//Valor para referencia e identificar el codigo de error producido 
+	private int codigo;
 	//Valor para referencia e identificar el mensaje de error producido
 	private String mensaje;
 	
 	public UPSException(Exception e) {
 		super(e);
-		this.codigo = 1;			//Error general
+		this.setCodigo(1);			//Error general
 		this.mensaje = this.getLocalizedMessage();		
 	}
 
@@ -49,6 +50,14 @@ public class UPSException extends Exception {
 		if (errorMessage == null)
 			errorMessage = e.getMessage();
 		return errorMessage;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 	
 }
