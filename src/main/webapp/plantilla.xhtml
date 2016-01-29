@@ -7,96 +7,66 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+.flotante {
+	display:scroll;position:fixed;bottom:320px;right:0px;
+}
+</style>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css"
-		media="all" />
-	<script src="js/jquery.min.js"></script>
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	<!-- js -->
-	<!-- start-smoth-scrolling -->
-	<script type="text/javascript" src="js/move-top.js"></script>
-	<script type="text/javascript" src="js/easing.js"></script>
-	<script type="text/javascript">
-jQuery(document).ready(function($) {
-	$(".scroll").click(function(event){		
-		event.preventDefault();
-	$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-});
-});
-</script>
-	<title><ui:insert name="titulo">
-               Reservas Canchas            </ui:insert></title>
+<title>
+
+
+<ui:insert name="titulo">
+               Reservas Canchas            </ui:insert>
+               
+               </title>
 </h:head>
+
+
 
 <h:body>
 
-	<header id="cabecera"> <ui:insert name="cabecera">
-		<div class="header">
-			<div class="header-top">
-				<!-- container -->
-				<div class="container">
-					<div class="header-top-left">
-						<p:button outcome="iniciar-sesion" value="Iniciar Sesion" icon="ui-icon-star">
-    
-					    </p:button>
-					</div>
-					<div class="header-top-right">
-						<form>
-							<input type="text" placeholder=" " required="" /> <input
-								type="submit" value=" " />
-							<div class="clearfix"></div>
-						</form>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<!-- //container -->
-			</div>
+<a class='flotante' href='#' >Pruebas</a>
+<div id="pagewrap">
+	
+			<ui:insert name="cabecera">
+		<div class="header" style=" ">
+			
 			<div class="header-middle">
 				<!-- container -->
 				<div class="container">
 					<div class="header-middle-logo">
-						<a href="index.xhtml">Reserva tu cancha ya</a>
+						<a href="index.xhtml">Reserva Ahora</a>
 					</div>
 					<div class="header-middle-right">
-						<div class="phone">
-							<span> </span>
-							<ul>
-								<li class="gray">Numeros de Contacto</li>
-								<li>0992674354</li>
-
-							</ul>
-							<div class="clearfix"></div>
-						</div>
+						
 						<div class="location">
-							<span> </span>
+							
 							<ul>
-								<li class="gray">Dirreccion</li>
-								<li>Cuenca,Ecuador</li>
-
+								<li class="gray"></li>
+								<li></li>
+								<li></li>
 							</ul>
 						</div>
-						<div class="clearfix"></div>
+						<div class="clearfix"> </div>
 					</div>
-					<div class="clearfix"></div>
+					<div class="clearfix"> </div>
 				</div>
 				<!-- //container -->
 			</div>
 			<div class="top-nav">
 				<!-- container -->
-				<div class="container">
-					<span class="menu">MENU</span>
+				<div class="container" style=" height : 16px;">
 					<ul class="nav1">
-						<li><a href="mapa.xhtml">Mapas</a></li>
-						<li><a href="">Noticias</a></li>
-						<li><a href="">Blogs</a></li>
-						<li><a href="">Cuenta</a></li>
-						<div class="clearfix"></div>
+						<li><a href="mapa.xhtml">Canchas de la Ciudad</a></li>                        
+						<li><a href="iniciar-sesion.xhtml">Iniciar Sesion</a></li>                 
+						<li><a href="gallery.html">Gallery</a></li>               
+						<li><a href="articles.html">Articles</a></li>                  
 					</ul>
 					<!-- script-for-menu -->
-					<script> 
+							 <script> 
 							   $( "span.menu" ).click(function() {
 								 $( "ul.nav1" ).slideToggle( 300, function() {
 								 // Animation complete.
@@ -104,41 +74,37 @@ jQuery(document).ready(function($) {
 								 });
 							
 							</script>
-					<!-- /script-for-menu -->
+						<!-- /script-for-menu -->
 				</div>
 				<!-- //container -->
 			</div>
-			<div class="blue"></div>
+			<div class="blue" style=" height : 1px;"> </div>
 		</div>
 
+	</ui:insert>	
+	
+	<div id="content">
+				
+	
+	<ui:insert name="contenido">
+    
+          
+                    Aqui va el contenido de la página
+     </ui:insert>
 
-	</ui:insert> </header>
-
-	<div class="cuerpo">
-
-
-		<article class="contenido"> <ui:insert name="contenido">
-
-		</ui:insert> </article>
 	</div>
 
-	<footer id="pie"> 
-	<div class="footer">
+    <div id="footer">
+    
+		<div class="footer" style=" height : 149px;">
 			<!-- container -->
 			<div class="container">
 				<div class="footer-top">
-						<div class="footer-grids">
-							<div class="col-md-3 f-address">
-								<h5>Direccion</h5>
-								<ul>
-									<li>Cuenca-Ecuador</li>
-									<li>Telefono: 0992674354</li>
-									<li>E-mail : <a href="mailto:example@email.com">Example@mail.com</a></li>
-								</ul>
-							</div>
+						<div class="footer-grids" style=" height : 106px;">
+							
 							
 							<div class="col-md-3 footer-logo">
-								<a href="index.xhtml">Siguenos en </a>
+								<a href="index.xhtml">Siguenos En</a>
 								<div class="footer-left">
 									<ul>
 										<li><a class="facebook" href="#"></a></li>
@@ -149,9 +115,7 @@ jQuery(document).ready(function($) {
 							<div class="clearfix"> </div>
 						</div>
 						<div class="footer-bottom">
-							<div class="copyright">
-								<p>© 2015 Forward. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-							</div>
+							
 							<div class="clearfix"> </div>
 						</div>
 				</div>
@@ -174,11 +138,13 @@ jQuery(document).ready(function($) {
 										
 									});
 								</script>
-									<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-	<!-- content-Get-in-touch -->
+									<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>        
+            					
+            
+     </div>
 	
-	</footer>
-
+	
+</div>	
 </h:body>
 
 </html>

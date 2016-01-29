@@ -294,8 +294,8 @@ public class MapBean
 	private void buildStarbucksGraphicsModel()
 	{
 		this.starbucksGraphicsModel = new GraphicsModel();
-		this.starbucksGraphicsModel.setName("Starbucks");
-
+		this.starbucksGraphicsModel.setName("Canchas");
+	
 	
 		
 		
@@ -318,7 +318,8 @@ public class MapBean
 	{
 		MarkerGraphic marker = new MarkerGraphic();
 		marker.setCoordinate(new Coordinate(latitude, longitude));
-		marker.getAttributes().put("Address", address);
+		marker.getAttributes().put("Nombres", "Canchas 1");
+		marker.getAttributes().put("Dirreccion", address);
 		marker.setImage("http://www.fmf.com.mx/gif/balon.gif");
 		marker.setHeight(32);
 		marker.setWidth(32);
