@@ -1,6 +1,7 @@
 package ec.edu.ups.canchas.utilidades;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -34,8 +35,12 @@ import com.gisfaces.util.StringUtilities;
 
 @ManagedBean
 @SessionScoped
-public class MapBean
+public class MapBean implements Serializable 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5876009909531039544L;
 	private String background;
 	private double latitude;
 	private double longitude;

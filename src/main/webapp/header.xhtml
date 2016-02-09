@@ -1,108 +1,48 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
-<head>
-<title>Canchas</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords"
-	content="Forward Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css"
-	media="all" />
-<!-- js -->
-<script src="js/jquery.min.js"></script>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- js -->
-<!-- start-smoth-scrolling -->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-<script type="text/javascript">
-jQuery(document).ready(function($) {
-	$(".scroll").click(function(event){		
-		event.preventDefault();
-	$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-});
-});
-</script>
-
-
-</head>
-<body>
-	<!-- header -->
-	<div class="header">
-		<div class="header-top">
-			<!-- container -->
-			<div class="container">
-				<div class="header-top-left">
-					<p:commandButton type="button" value="Login"
-						onclick="PF('dlg').show();" icon="ui-icon-extlink" />
-				</div>
-				<div class="header-top-right">
-					<form>
-						<input type="text" placeholder=" " required="" /> <input
-							type="submit" value=" " />
-						<div class="clearfix"></div>
-					</form>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			<!-- //container -->
-		</div>
-		<div class="header-middle">
-			<!-- container -->
-			<div class="container">
-				<div class="header-middle-logo">
-					<a href="index.html">Reserva tu cancha ya</a>
-				</div>
-				<div class="header-middle-right">
-					<div class="phone">
-						<span> </span>
-						<ul>
-							<li class="gray">Numeros de Contacto</li>
-							<li>0992674354</li>
-
-						</ul>
-						<div class="clearfix"></div>
+</h:head> 
+<body> 
+<div class="header" style=" ">
+			
+			<div class="header-middle">
+				<!-- container -->
+				<div class="container">
+					<div class="header-middle-logo">
+						<a href="index.xhtml">Reserva Ahora</a>
 					</div>
-					<div class="location">
-						<span> </span>
-						<ul>
-							<li class="gray">Dirreccion</li>
-							<li>Cuenca,Ecuador</li>
-
-						</ul>
+					<div class="header-middle-right">
+						
+						<div class="location">
+							
+							<ul>
+								<li class="gray"></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</div>
+						<div class="clearfix"> </div>
 					</div>
-					<div class="clearfix"></div>
+					<div class="clearfix"> </div>
 				</div>
-				<div class="clearfix"></div>
+				<!-- //container -->
 			</div>
-			<!-- //container -->
-		</div>
-		<div class="top-nav">
-			<!-- container -->
-			<div class="container">
-				<span class="menu">MENU</span>
-				<ul class="nav1">
-					<li><a href="about.html">About us</a></li>
-					<li><a href="matches.html">Matches</a></li>
-					<li><a href="gallery.html">Gallery</a></li>
-					<li><a href="articles.html">Articles</a></li>
-					<li><a href="blog.html">Blogs</a></li>
-					<li><a href="typo.html">Typo</a></li>
-					<li><a href="contact.html">Contact</a></li>
-					<div class="clearfix"></div>
-				</ul>
-				<!-- script-for-menu -->
-				<script> 
+			<div class="top-nav">
+				<!-- container -->
+				<div class="container" style=" height : 16px;">
+					<ul class="nav1">
+						<li><a href="mapa.xhtml">Canchas de la Ciudad</a></li>                        
+						<li><a href="iniciar-sesion.xhtml">Iniciar Sesion</a></li>                 
+						<li><a href="gallery.html">Noticias</a></li>               
+						<li><a href="articles.html">Perfil</a></li>                  
+					</ul>
+					<!-- script-for-menu -->
+							 <script> 
 							   $( "span.menu" ).click(function() {
 								 $( "ul.nav1" ).slideToggle( 300, function() {
 								 // Animation complete.
@@ -110,13 +50,12 @@ jQuery(document).ready(function($) {
 								 });
 							
 							</script>
-				<!-- /script-for-menu -->
+						<!-- /script-for-menu -->
+				</div>
+				<!-- //container -->
 			</div>
-			<!-- //container -->
+			<div class="blue" style=" height : 1px;"> </div>
 		</div>
-		<div class="blue"></div>
-	</div>
-	<!-- //header -->
 
-</body>
+</body> 
 </html>

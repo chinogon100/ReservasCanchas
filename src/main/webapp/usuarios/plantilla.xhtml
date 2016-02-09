@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<style>
+.flotante {
+	display:scroll;position:fixed;bottom:320px;right:0px;
+}
+</style>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+<title>
+
+
+<ui:insert name="titulo">
+               Reservas Canchas            </ui:insert>
+               
+               </title>
+</h:head>
+
+
+
+<h:body>
+
+<div id="pagewrap">
+	
+			<ui:insert name="cabecera">
+		<div class="header" style=" ">
+			
+			<div class="header-middle">
+				<!-- container -->
+				<div class="container">
+					<div class="header-middle-logo">
+						<a href="../index.xhtml">Reserva Ahora</a>
+					</div>
+					<div class="header-middle-right">
+						
+						<div class="location">
+							
+							<ul>
+								<li class="gray"></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<!-- //container -->
+			</div>
+			<div class="top-nav">
+				<!-- container -->
+				<div class="container" style=" height : 16px;">
+					<ul class="nav1">
+						<li><a href="../protegidas/mapa.xhtml">Canchas de la Ciudad</a></li>                        
+						<li><a href="../iniciar-sesion.xhtml">Iniciar Sesion</a></li>                 
+						<li><a href="../gallery.html">Gallery</a></li>               
+						<li><a href="../articles.html">Articles</a></li>                  
+					</ul>
+					<!-- script-for-menu -->
+							 <script> 
+							   $( "span.menu" ).click(function() {
+								 $( "ul.nav1" ).slideToggle( 300, function() {
+								 // Animation complete.
+								  });
+								 });
+							
+							</script>
+						<!-- /script-for-menu -->
+				</div>
+				<!-- //container -->
+			</div>
+			<div class="blue" style=" height : 1px;"> </div>
+		</div>
+
+	</ui:insert>	
+	
+	<div id="content">
+				
+	
+	<ui:insert name="contenido">
+    
+          
+                    Aqui va el contenido de la página
+     </ui:insert>
+
+	</div>
+
+    <div id="footer">
+    
+		<div class="footer" style=" height : 149px;">
+			<!-- container -->
+			<div class="container">
+				<div class="footer-top">
+						<div class="footer-grids" style=" height : 106px;">
+							
+							
+							<div class="col-md-3 footer-logo">
+								<a href="index.xhtml">Siguenos En</a>
+								<div class="footer-left">
+									<ul>
+										<li><a class="facebook" href="#"></a></li>
+										<li><a class="you-tube" href="#"></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="footer-bottom">
+							
+							<div class="clearfix"> </div>
+						</div>
+				</div>
+			</div>
+			<!-- //container -->
+		</div>
+		<!-- //footer -->
+		<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+										
+										$().UItoTop({ easingType: 'easeOutQuart' });
+										
+									});
+								</script>
+									<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>        
+            					
+            
+     </div>
+	
+	
+</div>	
+</h:body>
+
+</html>

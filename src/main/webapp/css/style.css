@@ -42,6 +42,8 @@ ESTRUCTURA
 	height:10%;
 }
 
+
+
 /************************************************************************************
 MEDIA QUERIES
 *************************************************************************************/
@@ -57,7 +59,6 @@ MEDIA QUERIES
 	
 
 }
-
 /* para 700px o menos */
 @media screen and (max-width: 700px) {
 
@@ -72,7 +73,6 @@ MEDIA QUERIES
 
 }
 
-/* para 480px o menos */
 @media screen and (max-width: 480px) {
 
 	#header {
@@ -88,14 +88,9 @@ MEDIA QUERIES
 }
 
 /* borde & guideline (puedes ignorarlo) */
-#content {
-}
-#sidebar {
-	background: #f0efef;
-}
-#header, #content, #sidebar {
-	margin-bottom: 5px;
-}
+
+
+/* borde & guideline (puedes ignorarlo) */
 ***********
 @font-face {
    font-family: 'Arimo-Regular';

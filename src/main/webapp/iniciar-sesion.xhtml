@@ -22,23 +22,15 @@
 						required="true" label="password" />
 					<f:facet name="footer">
 					<p:commandButton value="Login" update="mensajes" action="#{controlUsuario.login(controlUsrAdm.nombreUsr,controlUsrAdm.clave1)}"
-                                 oncomplete="handleLoginRequest(xhr, status, args)" /></f:facet>
+                                 oncomplete="handleLoginRequest(xhr, status, args)" />
+                                 <p:button outcome="registro" value="Registrarse" icon="ui-icon-plusthick">
+    						<f:param name="productId" value="10" />
+					</p:button></f:facet>
+			    	
 				</h:panelGrid>
 			</p:panel>
 		</h:form>
 	</center>
-		<script type="text/javascript">
-  //<![CDATA[
-  function manejarLogin(xhr, status, args) {
-    if (!args.validationFailed && args.estaLogeado) {
-      setTimeout(function() {
-        window.location = args.view;
-      }, 500);
-    }
-  }
-//]]>
-</script>
-
 
 	</ui:define>
 

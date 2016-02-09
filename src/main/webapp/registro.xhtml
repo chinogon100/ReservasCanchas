@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	 >
+
+
+<ui:composition template="plantilla.xhtml">
+
+
+	<ui:define name="contenido" >
+	<h:form>
+   <p:growl id="growl" showDetail="true" sticky="true" />  
+                 
+ 
+ 
+    <p:wizard flowListener="#{controlUsuario.onFlowProcess}">
+        <p:tab id="personal" title="Datos Usuario">
+            <p:panel header="Datos del Usuario">
+                <p:messages />
+                <h:panelGrid columns="2" columnClasses="label, value">
+                    <h:outputText value="Nombre de Usuario: *" />
+                    <p:inputText value="#{controlUsuario.usuario.usuario}" required="true" label="Usuario"/>
+ 
+                    <h:outputText value="Contraseña: *" />
+ 					<p:password id="feedback" value="#{controlUsuario.usuario.contraseña}" feedback="true" required="true" label="password"/>
+               
+ 
+ 
+                    <h:outputText value="Email: *" />
+                    <p:inputText value="#{controlUsuario.usuario.email}" required="true" label="e-mail"/>
+ 
+                    
+                </h:panelGrid>
+            </p:panel>
+        </p:tab>
+ 
+        <p:tab id="personas" title="Datos Persona">
+            <p:panel header="Datos de la Persona">
+                <p:messages />
+                <h:panelGrid columns="2" columnClasses="label, value">
+                    
+                    <h:outputText value="Nombres : *" />
+                    <p:inputText value="#{controlUsuario.persona.nombres}" required="true" label="Nombres"/>
+ 
+                    
+                    <h:outputText value="Direccion: " />
+                    <p:inputText value="#{controlUsuario.persona.direccion}" label="direccion"/>
+ 
+                    <h:outputText value="Telefono : *" />
+                    <p:inputText value="#{controlUsuario.persona.telefono}" required="true" label="telefono"/>
+ 
+                    
+                   </h:panelGrid>
+            </p:panel>
+        </p:tab>
+ 
+        <p:tab id="rol" title="Rol">
+            <p:panel header="Rol">
+                <p:messages />
+                <h:panelGrid columns="2" columnClasses="label, value">
+  
+  				<p:selectOneListbox id="basic" value="#{controlUsuario.roles.rol}">
+            		<f:selectItem itemLabel="Usuario " itemValue="ROLE_USER" />
+            		<f:selectItem itemLabel="Propietario" itemValue="ROLE_DUE" />
+             	</p:selectOneListbox>
+                    
+                 </h:panelGrid>
+            </p:panel>
+        </p:tab>
+ 
+        <p:tab id="confirm" title="Confirmacion">
+            <p:panel header="Confirmacion">
+                <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Usuario: " />
+                        <h:outputText value="#{controlUsuario.usuario.usuario}" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Email: " />
+                        <h:outputText value="#{controlUsuario.usuario.email}" styleClass="outputLabel"/>
+ 
+                       </h:panelGrid>
+ 
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Nombres: " />
+                        <h:outputText value="#{controlUsuario.persona.nombres}" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Telefono: " />
+                        <h:outputText value="#{controlUsuario.persona.telefono}" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Direccion: " />
+                        <h:outputText value="#{controlUsuario.persona.direccion}" styleClass="outputLabel"/>
+                    </h:panelGrid>
+ 
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Rol: " />
+                        <h:outputText value="#{controlUsuario.roles.rol}" styleClass="outputLabel"/>
+                    </h:panelGrid>
+                </h:panelGrid>
+ 
+ 				<p:commandButton value="Crear"  update="growl" actionListener="#{controlUsuario.save()}"
+ 					 onstart="PF('blockUIWidget').block()" oncomplete="PF('blockUIWidget').unblock()" />
+ 
+ 				
+ 				
+                
+            </p:panel>
+        </p:tab>
+    </p:wizard>
+ 
+ 
+ <pe:blockUI widgetVar="blockUIWidget" block=":entirePage">  
+    <h:panelGrid columns="2">  
+        <h:graphicImage library="images" name="ajax-loader1.gif"  
+                        style="margin-right: 12px; vertical-align: middle;"/>  
+        <h:outputText value="Please wait..." style="white-space: nowrap;"/>  
+    </h:panelGrid>  
+</pe:blockUI> 
+ 
+ 
+</h:form>
+	</ui:define>
+
+</ui:composition>
+
+</html>

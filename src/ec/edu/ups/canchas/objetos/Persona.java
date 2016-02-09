@@ -1,94 +1,114 @@
 package ec.edu.ups.canchas.objetos;
 
-import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.persistence.Column;
-import ec.edu.ups.canchas.objetos.Usuario;
-import javax.persistence.OneToOne;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "C_PERSONA")
-public class Persona implements Serializable {
+@Table(name = "persona", catalog = "canchas")
+public class Persona implements java.io.Serializable {
 
-	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8193941308872709151L;
+	private Integer idpersona;
+	private Usuario usuario;
+	private String nombres;
+	private String documentoId;
+	private String tipoDocumento;
+	private String telefono;
+	private String direccion;
 
 	public Persona() {
 	}
 
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long idpersona;
-	@Column(nullable = true)
-	private String nombres;
-	@Column(length = 13, unique = true)
-	private String documento_id;
-	@Column(length = 45)
-	private String tipo_documento;
-	@Column(length = 13)
-	private String telefono;
-	private String direccion;
-	@OneToOne
-	private Usuario usuario;
-
-	public long getIdpersona() {
-		return idpersona;
+	public Persona(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
-	public void setIdpersona(long id) {
-		this.idpersona = id;
+	public Persona(Usuario usuario, String nombres, String documentoId, String tipoDocumento, String telefono,
+			String direccion) {
+		this.usuario = usuario;
+		this.nombres = nombres;
+		this.documentoId = documentoId;
+		this.tipoDocumento = tipoDocumento;
+		this.telefono = telefono;
+		this.direccion = direccion;
 	}
 
-	public String getNombres() {
-		return nombres;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+
+	@Column(name = "idpersona", unique = true, nullable = false)
+	public Integer getIdpersona() {
+		return this.idpersona;
 	}
 
-	public void setNombres(String param) {
-		this.nombres = param;
+	public void setIdpersona(Integer idpersona) {
+		this.idpersona = idpersona;
 	}
 
-	public String getDocumento_id() {
-		return documento_id;
-	}
-
-	public void setDocumento_id(String param) {
-		this.documento_id = param;
-	}
-
-	public String getTipo_documento() {
-		return tipo_documento;
-	}
-
-	public void setTipo_documento(String param) {
-		this.tipo_documento = param;
-	}
-
-	public String getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(String param) {
-		this.telefono = param;
-	}
-
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String param) {
-		this.direccion = param;
-	}
-
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "usuario_idusuario", nullable = false)
 	public Usuario getUsuario() {
-	    return usuario;
+		return this.usuario;
 	}
 
-	public void setUsuario(Usuario param) {
-	    this.usuario = param;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	@Column(name = "nombres", length = 250)
+	public String getNombres() {
+		return this.nombres;
+	}
+
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
+	}
+
+	@Column(name = "documento_id", length = 13)
+	public String getDocumentoId() {
+		return this.documentoId;
+	}
+
+	public void setDocumentoId(String documentoId) {
+		this.documentoId = documentoId;
+	}
+
+	@Column(name = "tipo_documento", length = 45)
+	public String getTipoDocumento() {
+		return this.tipoDocumento;
+	}
+
+	public void setTipoDocumento(String tipoDocumento) {
+		this.tipoDocumento = tipoDocumento;
+	}
+
+	@Column(name = "telefono", length = 10)
+	public String getTelefono() {
+		return this.telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	@Column(name = "direccion", length = 45)
+	public String getDireccion() {
+		return this.direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 
 }

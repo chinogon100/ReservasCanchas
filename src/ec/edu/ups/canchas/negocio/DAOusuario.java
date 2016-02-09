@@ -34,4 +34,6 @@ public class DAOusuario {
 		return em.createQuery("Select c from Usuario c", Usuario.class).getResultList();
 	}
 	
+	
+	
 }
