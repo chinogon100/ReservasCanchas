@@ -3,6 +3,13 @@
 	<persistence-unit name="ReservasCanchas">
 	
 	<jta-data-source>java:jboss/datasources/ReservasCanchas</jta-data-source>
+	<class>ec.edu.ups.canchas.objetos.Canchas</class>
+	<class>ec.edu.ups.canchas.objetos.Noticias</class>
+	<class>ec.edu.ups.canchas.objetos.Observaciones</class>
+	<class>ec.edu.ups.canchas.objetos.Persona</class>
+	<class>ec.edu.ups.canchas.objetos.Reservas</class>
+	<class>ec.edu.ups.canchas.objetos.Roles</class>
+	<class>ec.edu.ups.canchas.objetos.Usuario</class>
 		  
 	    <exclude-unlisted-classes>false</exclude-unlisted-classes>
 	     
