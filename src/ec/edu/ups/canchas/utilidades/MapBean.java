@@ -2,9 +2,13 @@ package ec.edu.ups.canchas.utilidades;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -12,6 +16,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.model.SelectItem;
+import javax.inject.Inject;
 
 import com.gisfaces.event.MapClickEvent;
 import com.gisfaces.event.MapExtentEvent;
@@ -32,6 +37,9 @@ import com.gisfaces.model.PolylineGraphic;
 import com.gisfaces.model.TextGraphic;
 import com.gisfaces.util.GISUtilities;
 import com.gisfaces.util.StringUtilities;
+
+import ec.edu.ups.canchas.negocio.DAOcomplejo;
+import ec.edu.ups.canchas.objetos.Complejo;
 
 @ManagedBean
 @SessionScoped
@@ -57,12 +65,41 @@ public class MapBean implements Serializable
 	private GraphicsModel graphicsModel;
 	private GraphicsModel starbucksGraphicsModel;
 
+	
+	
+	@Inject
+	DAOcomplejo daoc;
+	@Inject 
+	Logger log;
+	
+	
+	private List<Complejo> al;
+	int size=0;
+	
+	@PostConstruct
+	public void init(){
+		al=daoc.getAll();
+
+		size=al.size();
+		//log.log(Level.INFO,"tama;o", size);
+
+		System.out.println(size);
+		
+		reset();
+
+	}
+	
+	public List<Complejo> getAl() {
+		return al;
+	}
+
+	public void setAl(List<Complejo> al) {
+		this.al = al;
+	}
+
 	public MapBean()
 	{
 		super();
-	
-		reset();
-
 	
 	}
 
@@ -87,7 +124,7 @@ public class MapBean implements Serializable
 		this.geoipGraphicsModel = new GraphicsModel();
 		this.geoipGraphicsModel.setName("Geocoded IP Addresses");
 
-		this.buildGraphicsModel();
+		//this.buildGraphicsModel();
 		this.buildStarbucksGraphicsModel();
 	}
 
@@ -305,26 +342,27 @@ public class MapBean implements Serializable
 		
 		
 		List<Graphic> graphics = this.starbucksGraphicsModel.getGraphics();
-		graphics.add(buildStarbucksMarker(-2.9041001464525853, -78.98978464209624, "Paceo de los cañaris y Jorge carrera Andrade"));
-		graphics.add(buildStarbucksMarker(30.312096, -81.680833, "1650 Margaret St, Jacksonville, FL 32204"));
-		graphics.add(buildStarbucksMarker(30.2432613, -81.5986099, "7153 Philips Hwy, Jacksonville, FL 32256"));
-		graphics.add(buildStarbucksMarker(30.278487, -81.720025, "4495 Roosevelt Blvd, Jacksonville, FL 32210"));
-		graphics.add(buildStarbucksMarker(30.292561, -81.601978, "5960 Beach Blvd, Jacksonville, FL 32216"));
-		graphics.add(buildStarbucksMarker(30.220144, -81.551926, "8221 Southside Blvd, Jacksonville, FL 32256"));
-		graphics.add(buildStarbucksMarker(30.204192, -81.617150, "9661 San Jose Blvd, Jacksonville, FL 32257"));
-		graphics.add(buildStarbucksMarker(30.260889, -81.645445, "1500 University Blvd W, Jacksonville, FL 32217"));
-		graphics.add(buildStarbucksMarker(30.429896, -81.662830, "1044 Dunn Ave, Jacksonville, FL 32218"));
-		graphics.add(buildStarbucksMarker(30.316828, -81.558313, "9301 Atlantic Blvd #101, Jacksonville, FL 32225"));
-		graphics.add(buildStarbucksMarker(30.25813, -81.5262888, "10281 Midtown Pkwy #203, Jacksonville, FL 32246"));
-		graphics.add(buildStarbucksMarker(30.190558, -81.551744, "9940 Southside Blvd, Jacksonville, FL 32256"));
+
+		
+		
+
+		
+		for(int x=0;x<size;x++) {
+		
+			graphics.add(buildStarbucksMarker(Double.parseDouble(al.get(x).getCoordenadasx()),Double.parseDouble(al.get(x).getCoordenadasy()),al.get(x).getDireccion(),al.get(x).getNombreComercial(),al.get(x).getCostoHora()));
+		}
+		
+	
 	}
 
-	private MarkerGraphic buildStarbucksMarker(double latitude, double longitude, String address)
+	private MarkerGraphic buildStarbucksMarker(double latitude, double longitude, String direccion,String nombre,BigDecimal costo)
 	{
 		MarkerGraphic marker = new MarkerGraphic();
 		marker.setCoordinate(new Coordinate(latitude, longitude));
-		marker.getAttributes().put("Nombres", "Canchas 1");
-		marker.getAttributes().put("Dirreccion", address);
+		marker.getAttributes().put("Nombres",nombre);
+		marker.getAttributes().put("Dirreccion", direccion);
+		marker.getAttributes().put("Costo Hora", costo);
+		
 		marker.setImage("http://www.fmf.com.mx/gif/balon.gif");
 		marker.setHeight(32);
 		marker.setWidth(32);

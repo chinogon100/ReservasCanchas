@@ -3,34 +3,44 @@
 <ui:composition 
 	xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:f="http://java.sun.com/jsf/core"
-        xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" template="plantilla.xhtml">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="plantilla.xhtml"
+    xmlns:c="http://java.sun.com/jstl/core">
 
 	<ui:define name="contenido">
 
-		<p:growl id="mensajes" showDetail="true" life="2000" />
 		<center>
-		<h:form>
-			<p:panel header="Login" style="width:300px">
-				<h:panelGrid columns="2" cellpadding="5">
-					<h:outputLabel for="username" value="Usuario:" />
-					<p:inputText value="#{controlUsrAdm.nombreUsr}" id="username"
-						required="true" label="username" />
-					<h:outputLabel for="password" value="Clave:" />
-					<p:password value="#{controlUsrAdm.clave1}" id="password"
-						required="true" label="password" />
-					<f:facet name="footer">
-					<p:commandButton value="Login" update="mensajes" action="#{controlUsuario.login(controlUsrAdm.nombreUsr,controlUsrAdm.clave1)}"
-                                 oncomplete="handleLoginRequest(xhr, status, args)" />
-                                 <p:button outcome="registro" value="Registrarse" icon="ui-icon-plusthick">
-    						<f:param name="productId" value="10" />
-					</p:button></f:facet>
-			    	
-				</h:panelGrid>
-			</p:panel>
-		</h:form>
-	</center>
+		<p:growl id="mensajes" showDetail="true" life="2000" ></p:growl>
+		 <h:form>
+    	<p:panel header="Login" style="width:400px">
+      	<h:panelGrid columns="2" cellpadding="5">
+         <h:outputLabel for="username" value="Usuario:" />
+         <p:inputText id="username" value="#{controlUsrAdm.nombreUsr}" required="true" label="username" />
+ 		 <h:outputLabel for="password" value="Contraseña:" />
+          <p:password id="password" value="#{controlUsrAdm.clave1}" required="true" label="password" />
+          <f:facet name="footer">
+          <p:commandButton value="Login" update="mensajes" action="#{controlUsuario.login(controlUsrAdm.nombreUsr,controlUsrAdm.clave1)}"
+                                oncomplete="manejarLogin(xhr, status, args)"  />
+                </f:facet>
+      </h:panelGrid>
+    </p:panel>
+  </h:form>
+	
+<script type="text/javascript">
+  //<![CDATA[
+  function manejarLogin(xhr, status, args) {
+    if (!args.validationFailed && args.estaLogeado) {
+      setTimeout(function() {
+        window.location = args.view;
+      }, 500);
+    }
+  }
+//]]>
+</script>
+				
+				
+			</center>
 
 	</ui:define>
 

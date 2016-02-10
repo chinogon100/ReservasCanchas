@@ -34,6 +34,8 @@ public class DAOusuario {
 		return em.createQuery("Select c from Usuario c", Usuario.class).getResultList();
 	}
 	
-	
+	public List<Usuario> getAllActivo(){
+		return em.createQuery("Select u from Usuario u Where u.habilitado=true", Usuario.class).getResultList();
+	}
 	
 }

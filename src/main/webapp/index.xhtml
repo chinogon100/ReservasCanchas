@@ -7,14 +7,42 @@
      >
     <ui:define name="contenido">
       
-      <h:form> 
-        <p:growl id="growl" showDetail="true" sticky="true" />  
- 
-     
-         <p:commandButton value="Save" actionListener="#{controlUsuario.mensaje()}" update="growl" />  
-     
-		</h:form>  
-      
+     <center>
+     <div class="header-middle-logo">
+			<br></br>
+			<br></br>
+			<a href="index.xhtml">Reserva Ahora</a>
+	  
+	  		
+          
+           	
+	  
+	  		<br></br>
+	 		
+	 		
+	 		<table width="50%" height="50%">
+			<tr>
+			<td>	<h:form><h:commandLink action="#{controlNavegacion.listacancha()}"  ><h:graphicImage value="images/reservar.png" alt="Reservar Canchas"/> </h:commandLink></h:form>
+	  		</td>
+			<td>	<h:form><h:commandLink action="#{controlNavegacion.buscar_cancha()}"  ><h:graphicImage value="images/buscar.png" alt="Buscar Canchas"/> </h:commandLink></h:form>	
+		 	</td>
+			</tr>
+</table> 
+	  		
+	  		
+	  
+	  
+	  
+	  </div>
+	  
+	  
+	  
+	  
+	  
+       </center>
+      		 		
+      		
+      		
       		    
     </ui:define>
  

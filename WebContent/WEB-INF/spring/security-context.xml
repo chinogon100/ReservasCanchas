@@ -10,6 +10,7 @@
   <http auto-config="true">
     <intercept-url pattern="/administradores/**" access="ROLE_ADMIN" />
   	<intercept-url pattern="/usuarios/**" access="ROLE_USER" />
+  	<intercept-url pattern="/dueños/**" access="ROLE_DUE" />
   </http>
   <authentication-manager alias="authenticationManager">
     <authentication-provider>

@@ -1,5 +1,5 @@
 package ec.edu.ups.canchas.objetos;
-// Generated 08-feb-2016 21:26:20 by Hibernate Tools 4.3.1.Final
+// Generated 09-feb-2016 21:36:26 by Hibernate Tools 4.3.1.Final
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -25,10 +25,6 @@ import javax.persistence.TemporalType;
 @Table(name = "reservas", catalog = "canchas")
 public class Reservas implements java.io.Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1279606865585829633L;
 	private Integer idreservas;
 	private Canchas canchas;
 	private Usuario usuario;

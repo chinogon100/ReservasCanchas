@@ -2,10 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      lang="es" xml:lang="es"> 
 
 <h:head>
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" > </link>
 </h:head> 
 <body> 
 <div class="header" style=" ">
@@ -14,17 +16,22 @@
 				<!-- container -->
 				<div class="container">
 					<div class="header-middle-logo">
-						<a href="index.xhtml">Reserva Ahora</a>
+						<a href="index.xhtml"><img src="images/logo.png" /></a>
+						
+													<a>Usuario:
+							#{controlUsuario.usuario.usuario}	
+    						</a>
+
+						<h:form><p:commandButton value="Salir" id="ajax" actionListener="#{controlUsuario.logout()}" align="left"/>
+ 						</h:form>
+
+						
 					</div>
 					<div class="header-middle-right">
 						
 						<div class="location">
 							
-							<ul>
-								<li class="gray"></li>
-								<li></li>
-								<li></li>
-							</ul>
+							
 						</div>
 						<div class="clearfix"> </div>
 					</div>
@@ -36,13 +43,17 @@
 				<!-- container -->
 				<div class="container" style=" height : 16px;">
 					<ul class="nav1">
-						<li><a href="mapa.xhtml">Canchas de la Ciudad</a></li>                        
-						<li><a href="iniciar-sesion.xhtml">Iniciar Sesion</a></li>                 
-						<li><a href="gallery.html">Noticias</a></li>               
+						<li><h:form><h:commandLink action="#{controlNavegacion.buscar_cancha()}" value="Canchas de la Ciudad" /></h:form>	</li>                        
+						<li><h:form><h:commandLink action="#{controlNavegacion.login()}" value="Iniciar Sesion" /></h:form>	</li>                 
+						<li><a href="noticias.xhtml">Noticias</a></li>
+						<li><a href="galeria.xhtml">Galeria</a></li>               
 						<li><a href="articles.html">Perfil</a></li>                  
 					</ul>
+			
+			
+			
 					<!-- script-for-menu -->
-							 <script> 
+							 <script type="text/javascript"> 
 							   $( "span.menu" ).click(function() {
 								 $( "ul.nav1" ).slideToggle( 300, function() {
 								 // Animation complete.
@@ -50,12 +61,28 @@
 								 });
 							
 							</script>
+							<script type="text/javascript">
+  //<![CDATA[
+  function manejarLogin(xhr, status, args) {
+    if (!args.validationFailed && args.estaLogeado) {
+      setTimeout(function() {
+        window.location = args.view;
+      }, 500);
+    }
+  }
+//]]>
+</script>
+							
+							
+							
 						<!-- /script-for-menu -->
 				</div>
 				<!-- //container -->
 			</div>
 			<div class="blue" style=" height : 1px;"> </div>
 		</div>
+
+			
 
 </body> 
 </html>

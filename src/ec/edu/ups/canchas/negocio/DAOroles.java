@@ -34,4 +34,9 @@ public class DAOroles {
 		return em.createQuery("Select c from Roles c", Roles.class).getResultList();
 	}
 	
+	
+	public Roles get(int id){
+		return em.createQuery("Select c from Roles c  where c.usuario.idusuario="+id, Roles.class).getSingleResult();
+	}
+	
 }
