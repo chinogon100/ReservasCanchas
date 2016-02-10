@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	 >
+
+
+<ui:composition template="plantilla.xhtml">
+
+
+	<ui:define name="contenido" >
+
+	
+<h:form id="form">
+    
+    <p:dataGrid value="#{controlProUsu.dao.all}" var="complejo"  columns="3" layout="grid"
+        rows="12" paginator="true" id="complejos"
+        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+        rowsPerPageTemplate="6,12,16">
+ 
+        <f:facet name="header">
+ 			Complejos
+        </f:facet>
+ 
+        <p:panel header="#{complejo.nombreComercial}" style="text-align:center">
+            <h:panelGrid columns="1" style="width:100%">
+ 
+ 				<p:gmap id="gmap" center="#{controlProUsu.complejo.coordenadasx}, #{controlProUsu.complejo.coordenadasy}" zoom="15" type="HYBRID" style="width:20%;height:200px" />
+ 
+               Precio Hora <h:outputText value="#{complejo.costoHora}" />
+ 
+                <p:commandLink update=":form:carDetail"  oncomplete="PF('productoDialog').show()" title="View Detail">
+                    <h:outputText styleClass="ui-icon ui-icon-cart" style="margin:0 auto;" />
+                    <f:setPropertyActionListener value="#{complejo}" target="#{controlProUsu.complejo}" />
+                </p:commandLink>
+            </h:panelGrid>
+        </p:panel>
+ 
+    </p:dataGrid>
+ 
+    <p:dialog header="Detalles de la Cancha
+    " widgetVar="productoDialog" showEffect="fade" hideEffect="fade" resizable="false">
+        <p:outputPanel id="carDetail" style="text-align:center;">
+            <p:panelGrid  columns="2" rendered="#{not empty controlProUsu.complejo}" columnClasses="label,value">
+                <f:facet name="header">
+       
+                </f:facet>
+ 
+                <h:outputText value="Nombre:" />
+                <h:outputText value="#{controlProUsu.complejo.nombreComercial}" />
+ 				
+                <h:outputText value="Dirreccion:" />
+                <h:outputText value="#{controlProUsu.complejo.direccion}" />
+ 				     
+                <h:outputText value="Precio" />
+                <h:outputText value="$#{controlProUsu.complejo.costoHora}" />
+            
+                <h:outputText value="Hora Apertura" />
+                <h:outputText value="#{controlProUsu.complejo.horaApertura}" />
+            	 
+            	 
+				
+			
+				 </p:panelGrid>
+        </p:outputPanel>
+    </p:dialog>
+</h:form>
+
+
+
+
+
+
+	</ui:define>
+
+</ui:composition>
+
+</html>
